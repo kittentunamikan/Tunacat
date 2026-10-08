@@ -1,0 +1,420 @@
+.scrollable {
+	overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #aaaaaa;
+}
+
+.window {
+	position        : fixed;
+	background-color: rgba(0, 0, 0, 0.7);
+	width           : 90%;
+	top             : 0;
+	color           : white;
+	font-family     : 'Trebuchet MS', 'Franklin Gothic Medium', Arial, sans-serif;
+	margin          : auto;
+	margin-top      : 20px;
+	right           : 0;
+	left            : 0;
+	padding         : 15px;
+	box-sizing      : border-box;
+	border-color    : white;
+	border-style    : solid;
+	border-width    : 2px;
+	border-width    : calc(0.15 * (1vw + 1vh));
+	font-size       : 20px;
+	font-size       : calc(13px + ((0.5 * (1.1vw - 0.1vh)) + 0.14rem));
+	max-height      : 90%;
+	transition      : 0.2s;
+	z-index         : 10;
+}
+
+.window button,
+.window input,
+.window select {
+	background-color: rgba(0, 0, 0, 0.7);
+	color           : white;
+	font-size       : 20px;
+	font-size       : 0.9em;
+	padding         : 0.4rem;
+	transition      : 0.2s;
+	border          : 1px solid #fff;
+	border-radius   : 5px;
+	margin          : 5px;
+}
+
+.window :disabled, .window .disabled {
+	pointer-events: none;
+	opacity: 0.65;
+}
+
+.window.settings button,
+.window.settings input,
+.window.settings select {
+	margin: 0px;
+}
+
+.keybinds-input {
+	margin-bottom: 1em;
+}
+.keybinds-input input {
+	width: 10em;
+}
+
+.reminder-rules-header, .reminder-rule-row {
+	display    : flex;
+	gap        : 6px;
+	align-items: center;
+}
+.reminder-rules-header {
+	font-weight  : bold;
+	margin-bottom: 2px;
+}
+.reminder-rules-header span, .reminder-rule-row select {
+	flex     : 1;
+	min-width: 0;
+}
+.reminder-rule-row button {
+	flex: 0 0 auto;
+}
+
+.nickname-row {
+	display    : flex;
+	gap        : 6px;
+	align-items: center;
+}
+.nickname-row .nickname-account {
+	flex          : 1;
+	min-width     : 0;
+	overflow-wrap : anywhere;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-column {
+	display       : flex;
+	flex-direction: column;
+}
+
+#customLobbyJoinMenu {
+	align-items: center;
+}
+
+.customlobby-main {
+	display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+	gap: 10px;
+}
+
+.lobby-player {
+	margin: 5px;
+	width: 15rem;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lobby-player span {
+	margin: 0px 5px;
+    font-size: .7em;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3px 5px;
+    border-color: #ffffff7d;
+    border-radius: 5px;
+}
+
+.lobby-player button {
+	font-size: 0.7em;
+	margin: 0px 5px;
+	padding: 3px 5px;
+}
+
+.d-none {
+	display: none;
+}
+
+.text-align-center {
+	text-align: center;
+}
+.text-align-left {
+	text-align: left;
+}
+
+hr {
+	width: 100%;
+}
+
+h1 {
+	font-weight       : normal;
+	margin-block-start: 0.5em;
+	margin-block-end  : 0.5em;
+	transition        : 0.2s;
+}
+#playerlist h1 {
+	margin-block-start: 0.3em;
+	margin-block-end  : 0.3em;
+}
+h3 {
+	font-weight       : normal;
+	margin-block-start: 0.6em;
+	margin-block-end  : 0.6em;
+}
+
+canvas,
+input,
+textarea {
+	transition: 0.2s;
+}
+
+.window button:hover {
+	background-color: rgba(222, 222, 222, 0.52);
+	border-radius   : 8px;
+}
+
+.window input:focus {
+	background-color: rgba(222, 222, 222, 0.36);
+	border-radius   : 8px;
+}
+
+td {
+	padding: 0px;
+}
+
+#playerlist_content.clickable td { cursor: pointer; }
+#playerlist_content.clickable td:hover { background-color: #00ff0040; }
+
+tr.new {
+	animation: flashAnimation 0.4s ease-out;
+}
+
+@keyframes flashAnimation {
+	0% {
+		background-color: #ffffffaa;
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+
+table {
+	border-spacing: 0px;
+}
+
+input#userna,
+input#inputfilebtn {
+	transition: 0.2s
+}
+
+.selectable {
+	user-select: text;
+}
+
+.color-red {
+	color: #dc143c;
+}
+
+.color-green {
+	color: #32cd32;
+}
+
+.color-light-gray {
+	color: #aaaaaa;
+}
+
+/* Checkbox */
+label.checkbox {
+	display        : block;
+	position       : relative;
+	padding-left   : 35px;
+	/*margin-bottom: 12px;*/
+	cursor         : pointer;
+}
+
+label.checkbox input {
+	position: absolute;
+	opacity : 0;
+	cursor  : pointer;
+	height  : 0;
+	width   : 0;
+}
+
+.checkmark {
+	position          : absolute;
+	top               : 0;
+	left              : 0;
+	height            : 25px;
+	width             : 25px;
+	/*background-color: #eee;*/
+	background-color  : rgb(255 255 255 / 70%);
+}
+
+label.checkbox:hover .checkmark {
+	background-color: #ccc;
+}
+
+label.checkbox input:checked~.checkmark {
+	/*background-color: #2196F3;*/
+	background-color: rgba(0, 255, 0, 0.5);
+}
+
+label.checkbox input:disabled~.checkmark {
+	opacity: 0.5;
+}
+
+label.checkbox input:disabled {
+	cursor: default;
+}
+
+label.checkbox:has(input:disabled) {
+	cursor: default;
+}
+
+.checkmark::after {
+	content : "";
+	position: absolute;
+	display : none;
+}
+
+label.checkbox input:checked~.checkmark:after {
+	display: block;
+}
+
+label.checkbox .checkmark:after {
+	left             : 9px;
+	top              : 5px;
+	width            : 5px;
+	height           : 10px;
+	border           : solid white;
+	border-width     : 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform    : rotate(45deg);
+	transform        : rotate(45deg);
+}
+
+
+#replayTimebar {
+	position        : fixed;
+	background-color: rgba(0, 0, 0, 0.7);
+	width           : 60%;
+	bottom          : calc(5vw + 12px);
+	color           : white;
+	font-family     : 'Trebuchet MS', 'Franklin Gothic Medium', Arial, sans-serif;
+	margin          : auto;
+	right           : 0;
+	left            : 0;
+	padding         : 8px 15px;
+	box-sizing      : border-box;
+	border-color    : white;
+	border-style    : solid;
+	border-width    : 2px;
+	border-width    : calc(0.15 * (1vw + 1vh));
+	font-size       : 20px;
+	font-size       : calc(9px + ((0.5 * (1.1vw - 0.1vh)) + 0.14rem));
+	align-items     : center;
+	gap             : 10px;
+	user-select     : none;
+	transition      : 0.2s;
+	z-index         : 9;
+}
+
+#replayTimebar .replay-time { min-width: 2.8em; text-align: center; white-space: nowrap; }
+
+#replayTimebar .replay-track {
+	position: relative; flex: 1; height: 14px; cursor: pointer; touch-action: none;
+	background-color: rgb(255 255 255 / 70%);
+}
+#replayTimebar .replay-track:hover { background-color: #ccc; }
+
+#replayTimebar .replay-fill {
+	position: absolute; top: 0; bottom: 0; left: 0; width: 0%;
+	background-color: rgba(0, 255, 0, 0.5); pointer-events: none;
+}
+
+#replayTimebar .replay-fill::after {
+	content: ""; position: absolute; right: 0; top: 50%; width: 12px; height: 22px;
+	transform: translate(50%, -50%);
+	background-color: #ffffff; border: 1px solid rgba(0, 0, 0, 0.7);
+}
+#replayTimebar.seeking .replay-fill::after { animation: seekAnimation 0.8s ease-in-out infinite; }
+
+#replayTimebar .replay-target {
+	position: absolute; top: -4px; bottom: -4px; left: 0%; width: 3px;
+	transform: translateX(-50%); background-color: #dc143c; pointer-events: none;
+}
+
+@keyframes seekAnimation {
+	50% {
+		opacity: 0.4;
+	}
+}
+
+/* Custom emoji bar */
+.emoji-bar-slots {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin: 6px 0;
+}
+.emoji-bar-palette {
+	display: grid;
+	grid-template-columns: repeat(10, 34px);
+	justify-content: start;
+	gap: 2px;
+	width: fit-content;
+	max-width: 100%;
+	margin: 6px 0;
+	padding: 6px;
+	background-color: rgba(30, 34, 20, 0.9);
+	border: 1px solid #ffffff3d;
+}
+.emoji-bar-slots .emoji-slot, .emoji-bar-palette .emoji-choice {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	padding: 2px;
+	margin: 0;
+	font-size: 20px;
+	line-height: 1;
+}
+.emoji-bar-slots .emoji-slot img, .emoji-bar-palette .emoji-choice img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+.emoji-bar-slots .emoji-slot.selected {
+	background-color: rgba(0, 255, 0, 0.5);
+	border-radius: 8px;
+}
+.emoji-bar-pager {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 4px 0;
+}
+/* who likes css :sob:
+
+/* Custom Map Button */
+::-webkit-file-upload-button {
+	color           : white;
+	background-color: #120076;
+	border          : 2px solid #fff;
+	top             : 0;
+	bottom          : 0;
+	padding-top     : 20px;
+	padding-bottom  : 20px;
+	padding-left    : 20px;
+	padding-right   : 20px;
+	font-family     : 'Trebuchet MS', 'Arial Narrow', Arial, sans-serif;
+	text-align      : center;
+}
