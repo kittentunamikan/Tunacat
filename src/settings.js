@@ -23,6 +23,8 @@ var settings = {
   densityDisplayStyle: "absoluteQuotient",
   hideBotNames: false,
   highlightClanSpawns: false,
+  showBoatTrajectories: true,
+  showBoatTroops: true,
   highlightDuplicateIps: false,
   detailedTeamPercentage: false,
   openDonationHistoryFromLb: true,
@@ -486,6 +488,13 @@ const settingsManager = new (function () {
       label: "Highlight clan spawnpoints",
       note: "Increases the spawnpoint glow size for members of your clan",
     },
+    {
+      for: "showBoatTrajectories",
+      type: "checkbox",
+      label: "Show boat trajectories and landing points",
+      note: "Draws each boat's route and marks where it will land",
+    },
+    { for: "showBoatTroops", type: "checkbox", label: "Show troops on boats (next to landing point)" },
     {
       for: "highlightDuplicateIps",
       type: "checkbox",
