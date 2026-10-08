@@ -1,8 +1,8 @@
 {
-    "version": "0.6.29.1",
-    "lastUpdated": "September 4",
+    "version": "0.7.0.0",
+    "lastUpdated": "October 8",
     "changes": [
-        "Patches for the recent game updates (Merged PR #32 by QZxV4)"
+        "Patches for the recent game updates "
     ],
     "isSignificant": false
 }
