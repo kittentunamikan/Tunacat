@@ -25,6 +25,7 @@ var settings = {
   highlightClanSpawns: false,
   showBoatTrajectories: true,
   showBoatTroops: true,
+  showBotActionCountdown: true,
   highlightDuplicateIps: false,
   detailedTeamPercentage: false,
   openDonationHistoryFromLb: true,
@@ -482,6 +483,7 @@ const settingsManager = new (function () {
       ],
     },
     { for: "hideBotNames", type: "checkbox", label: "Hide bot names" },
+    { for: "showBotActionCountdown", type: "checkbox", label: "Show bot action countdown (singleplayer)", note: "Time until the next AI decision, not a guaranteed full send." },
     {
       for: "highlightClanSpawns",
       type: "checkbox",
