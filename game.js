@@ -3080,7 +3080,7 @@ function a3B() {
 function da() {
 	function a3N(e) {
 		mE(e), u.v(4, 5, new w("🚀 New Game Update", "The game was updated! Please reload the game. An internet connection is required." +
-			"<div style='border: white; border-width: 1px; border-style: solid; margin: 10px; padding: 5px;'><h2>FX Client is not yet compatible with the latest version of the game.</h2><p>Updates should normally be available within a few hours.<br>You can still use FX to play in singleplayer mode.</p></div>",
+			"<div style='border: white; border-width: 1px; border-style: solid; margin: 10px; padding: 5px;'><h2>FX Client is not yet compatible with the latest version of the game.</h2><p>Updates should normally be available within a few hours.<br>You can still use Cat to play in singleplayer mode.</p></div>",
 			!0, [new x("⬅️ " + L(40), function() {
 				u.a3O()
 			}), new x("🔄 Reload", function() {
@@ -9281,7 +9281,7 @@ function aPv() {
 		}, bE.pb), new x("", function() {
 			u.v(12)
 		}, bE.pK, !1),
-		new x("FX Client settings", function() {
+		new x("Cat Settings", function() {
 			__fx.WindowManager.openWindow("settings");
 		}, "rgba(0, 0, 20, 0.5)"),
 		new x("Join/Create custom lobby", function() {
