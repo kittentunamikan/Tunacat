@@ -26,6 +26,7 @@ var settings = {
   showBoatTrajectories: true,
   showBoatTroops: true,
   showBotActionCountdown: true,
+  showAutoSpawnPreview: true,
   highlightDuplicateIps: false,
   detailedTeamPercentage: false,
   openDonationHistoryFromLb: true,
@@ -482,6 +483,7 @@ const settingsManager = new (function () {
         },
       ],
     },
+    { for: "showAutoSpawnPreview", type: "checkbox", label: "Preview automatic spawn positions", note: "Predicted from current selections; positions may change before the countdown ends" },
     { for: "hideBotNames", type: "checkbox", label: "Hide bot names" },
     { for: "showBotActionCountdown", type: "checkbox", label: "Show adjacent bot action countdown", note: "time until an adjacent bot's next decision, not necessarily an attack" },
     {
