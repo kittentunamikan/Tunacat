@@ -574,10 +574,10 @@ const settingsManager = new (function () {
     ReplayHistoryList,
     function Footer(container) {
       const versionInfo = document.createElement("p");
-      versionInfo.innerText = `FX Client v${versionData.version}`;
+      versionInfo.innerText = `CAT v${versionData.version}`;
       const links = document.createElement("p");
-      links.innerHTML = `<a href="https://discord.gg/dyxcwdNKwK" target="_blank">Discord server</a> |
-        <a href="https://github.com/fxclient/FXclient#readme">Github repository</a>`;
+      links.innerHTML = `<a href=" " target="_blank">Meow</a> |
+        <a href=" ">Meow</a>`;
       const changelogButton = document.createElement("button");
       changelogButton.innerText = "Changelog";
       changelogButton.addEventListener("click", displayChangelog);
