@@ -483,7 +483,7 @@ const settingsManager = new (function () {
       ],
     },
     { for: "hideBotNames", type: "checkbox", label: "Hide bot names" },
-    { for: "showBotActionCountdown", type: "checkbox", label: "Show bot action countdown (singleplayer)", note: "Time until the next AI decision, not a guaranteed full send." },
+    { for: "showBotActionCountdown", type: "checkbox", label: "Show bot attack countdown", note: "time until the next AI attack" },
     {
       for: "highlightClanSpawns",
       type: "checkbox",
