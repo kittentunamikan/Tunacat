@@ -300,6 +300,19 @@ function SectionHeader(text) {
     container.append(title);
   };
 }
+function MeowSettingsSection(container) {
+  const title = document.createElement("p");
+  const heading = document.createElement("b");
+  heading.innerText = "Meow:";
+  title.append(heading);
+  const group = document.createElement("div");
+  group.style.margin = "0 0 12px";
+  group.style.padding = "10px 12px 4px";
+  group.style.border = "1px solid rgba(255,255,255,0.3)";
+  group.style.borderRadius = "4px";
+  container.append(title, group);
+  this.container = group;
+}
 
 function createCheckboxRow(labelText, note) {
   const label = document.createElement("label");
@@ -427,11 +440,20 @@ function ReplayHistoryList(container) {
 }
 
 const settingsManager = new (function () {
+  function MeowSectionDivider(container) {
+    const divider = document.createElement("hr");
+    divider.style.margin = "12px 0";
+    divider.style.border = "0";
+    divider.style.borderTop = "1px solid rgba(255,255,255,0.35)";
+    container.append(divider);
+  }
   const settingsStructure = [
-    SectionHeader("Meow:"),
+    MeowSettingsSection,
     { for: "showAutoSpawnPreview", type: "checkbox", label: "Preview automatic spawn positions", note: "Predicted from current selections; positions may change before the countdown ends" },
+    { for: "showBoatTrajectories", type: "checkbox", label: "Show boat trajectories and landing points", note: "Draws each boat's route and marks where it will land" },
     { for: "showBoatTroops", type: "checkbox", label: "Show troops on boats (next to landing point)" },
     { for: "showBotActionCountdown", type: "checkbox", label: "Show adjacent bot action countdown", note: "time until an adjacent bot's next decision, not necessarily an attack" },
+    MeowSectionDivider,
     {
       for: "displayWinCounter",
       type: "checkbox",
@@ -494,12 +516,7 @@ const settingsManager = new (function () {
       label: "Highlight clan spawnpoints",
       note: "Increases the spawnpoint glow size for members of your clan",
     },
-    {
-      for: "showBoatTrajectories",
-      type: "checkbox",
-      label: "Show boat trajectories and landing points",
-      note: "Draws each boat's route and marks where it will land",
-    },
+    // Show boat trajectories is grouped under Meow above.
     {
       for: "highlightDuplicateIps",
       type: "checkbox",
@@ -568,14 +585,24 @@ const settingsManager = new (function () {
     }
   ];
   const settingsContainer = document.querySelector(".settings .scrollable");
+  let activeSettingsContainer = settingsContainer;
   var inputFields = {}; // (includes select menus)
   var checkboxFields = {};
   var customElements = [];
   settingsStructure.forEach((item) => {
+    if (item === MeowSettingsSection) {
+      const container = document.createElement("div");
+      const section = new MeowSettingsSection(container);
+      settingsContainer.append(container);
+      activeSettingsContainer = section.container;
+      return;
+    }
     if (typeof item === "function") {
       const container = document.createElement("div");
       customElements.push(new item(container));
-      return settingsContainer.append(container);
+      activeSettingsContainer.append(container);
+      if (item === MeowSectionDivider) activeSettingsContainer = settingsContainer;
+      return;
     }
     const label = document.createElement("label");
     if (item.tooltip) label.title = item.tooltip;
@@ -615,7 +642,7 @@ const settingsManager = new (function () {
       label.append(checkmark);
       checkboxFields[item.for] = element;
     } else label.append(document.createElement("br"));
-    settingsContainer.append(label, document.createElement("br"));
+    activeSettingsContainer.append(label, document.createElement("br"));
   });
   this.save = function () {
     Object.keys(inputFields).forEach(function (key) {
