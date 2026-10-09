@@ -722,8 +722,10 @@ function c9() {
 	function lJ(aC) {
 		kz[aC] = 1 + bO.g0(l3[aC] * az.random(), 10 * az.value(100))
 	}
-	this.l5 = null, this.kp = [97, 94, 70, 40, 20, 0, 100], this.l6 = [500, 450, 400, 300, 80, 50, 100], this.kn = [0, 0, 5, 25, 50, 100, 0], this.l7 = [60, 74, 112, 200, 256, 512, 512], this.l8 = [1, 2, 3, 4, 6, 8, 1], this.l9 = [500, 450, 400, 300,
-		80, 50, 100
+	__fx.botActionCountdown = function(player) {
+		return __fx.settings.showBotActionCountdown && aE.lE && !aE.hi && !(player < aE.ku) && ah.hN[player] && 0 < (player = kz[player]) && 0 < bi.aDc ? "  ACT " + (player * bi.aDc / 1e3).toFixed(1) + "s" : ""
+	}, this.l5 = null, this.kp = [97, 94, 70, 40, 20, 0, 100], this.l6 = [500, 450, 400, 300, 80, 50, 100], this.kn = [0, 0, 5, 25, 50, 100, 0], this.l7 = [60, 74, 112, 200, 256, 512, 512], this.l8 = [1, 2, 3, 4, 6, 8, 1], this.l9 = [500, 450,
+		400, 300, 80, 50, 100
 	], this.lA = [100, 150, 250, 400, 600, 1e3, 100], this.dl = function() {
 		this.l5 = [L(7), L(8), L(9), L(10), L(11), L(12), "H Bot"]
 	}, this.dk = function() {
