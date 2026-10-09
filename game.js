@@ -7150,26 +7150,27 @@ function cf() {
 		var showName = aC < aE.ku || !__fx.settings.hideBotNames;
 		if (showName) {
 			ib.fillText(ah.a0j[aC], fg, fi);
-			const actionLabel = __fx.botActionCountdown?.(___id) || "";
-			if (actionLabel) {
-				const ctx = ib;
-				const nameWidth = ctx.measureText(ah.a0j[___id]).width;
-				const labelWidth = ctx.measureText(actionLabel).width;
-				const rightEdge = ctx.textAlign === "left" ? fg + nameWidth :
-					ctx.textAlign === "right" ? fg : fg + nameWidth / 2;
-				const labelX = rightEdge + labelWidth <= ctx.canvas.width ? rightEdge :
-					fg - nameWidth / 2 - labelWidth;
-				if (labelX >= 0) {
-					ctx.save();
-					ctx.textAlign = "left";
-					ctx.lineWidth = Math.max(2, fontSize * 0.15);
-					ctx.strokeStyle = "rgba(0,0,0,0.85)";
-					ctx.fillStyle = "#ffffff";
-					ctx.strokeText(actionLabel, labelX, fi);
-					ctx.fillText(actionLabel, labelX, fi);
-					ctx.restore();
-				}
+		}
+		const actionLabel = __fx.botActionCountdown?.(___id) || "";
+		if (actionLabel) {
+			const ctx = ib;
+			const nameWidth = showName ? ctx.measureText(ah.a0j[___id]).width : 0;
+			const labelWidth = ctx.measureText(actionLabel).width;
+			const rightEdge = ctx.textAlign === "left" ? fg + nameWidth :
+				ctx.textAlign === "right" ? fg : fg + nameWidth / 2;
+			const labelX = Math.max(0, Math.min(rightEdge, ctx.canvas.width - labelWidth));
+			if (labelX >= 0) {
+				ctx.save();
+				ctx.textAlign = "left";
+				ctx.lineWidth = Math.max(2, fontSize * 0.15);
+				ctx.strokeStyle = "rgba(0,0,0,0.85)";
+				ctx.fillStyle = "#ffffff";
+				ctx.strokeText(actionLabel, labelX, fi);
+				ctx.fillText(actionLabel, labelX, fi);
+				ctx.restore();
 			}
+		}
+		if (showName) {
 			aC < aE.ku && 2 !== ah.a5a[aC] || (aC = fontSize / aLu[aC], ib.fillRect(fg - .5 * aC, fi + bD.sK.a1H * fontSize, aC, Math.max(1, .1 * fontSize)));
 		}
 		aMH && __fx.settings.showPlayerDensity && (
