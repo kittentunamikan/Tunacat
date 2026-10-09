@@ -428,6 +428,10 @@ function ReplayHistoryList(container) {
 
 const settingsManager = new (function () {
   const settingsStructure = [
+    SectionHeader("Meow:"),
+    { for: "showAutoSpawnPreview", type: "checkbox", label: "Preview automatic spawn positions", note: "Predicted from current selections; positions may change before the countdown ends" },
+    { for: "showBoatTroops", type: "checkbox", label: "Show troops on boats (next to landing point)" },
+    { for: "showBotActionCountdown", type: "checkbox", label: "Show adjacent bot action countdown", note: "time until an adjacent bot's next decision, not necessarily an attack" },
     {
       for: "displayWinCounter",
       type: "checkbox",
@@ -483,9 +487,7 @@ const settingsManager = new (function () {
         },
       ],
     },
-    { for: "showAutoSpawnPreview", type: "checkbox", label: "Preview automatic spawn positions", note: "Predicted from current selections; positions may change before the countdown ends" },
     { for: "hideBotNames", type: "checkbox", label: "Hide bot names" },
-    { for: "showBotActionCountdown", type: "checkbox", label: "Show adjacent bot action countdown", note: "time until an adjacent bot's next decision, not necessarily an attack" },
     {
       for: "highlightClanSpawns",
       type: "checkbox",
@@ -498,7 +500,6 @@ const settingsManager = new (function () {
       label: "Show boat trajectories and landing points",
       note: "Draws each boat's route and marks where it will land",
     },
-    { for: "showBoatTroops", type: "checkbox", label: "Show troops on boats (next to landing point)" },
     {
       for: "highlightDuplicateIps",
       type: "checkbox",
