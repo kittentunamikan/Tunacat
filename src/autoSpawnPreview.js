@@ -69,29 +69,32 @@ export default {
     }
     ctx.save();
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.font = '12px system-ui';
+    const size = Math.max(1, Math.min(2, Math.sqrt(state.zoom)));
+    const fontSize = 12 * size;
+    const radius = 10 * size;
+    ctx.font = fontSize + 'px system-ui';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'bottom';
     ctx.strokeStyle = '#42e8d5';
     ctx.fillStyle = '#ffffff';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2 * size;
     for (const point of cached) {
       if (!state.players.includes(point.player)) continue;
       const x = point.x * state.zoom - state.panX;
       const y = point.y * state.zoom - state.panY;
       if (x < 0 || y < 0 || x > ctx.canvas.width || y > ctx.canvas.height) continue;
-      ctx.setLineDash([4, 3]);
-      ctx.beginPath(); ctx.arc(x, y, 10, 0, Math.PI * 2); ctx.stroke();
+      ctx.setLineDash([4 * size, 3 * size]);
+      ctx.beginPath(); ctx.arc(x, y, radius, 0, Math.PI * 2); ctx.stroke();
       ctx.setLineDash([]);
       const label = 'AUTO? ' + state.names[point.player];
       ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 3 * size;
       const labelWidth = Math.min(ctx.measureText(label).width, ctx.canvas.width - 8);
       const labelX = Math.max(labelWidth / 2 + 4, Math.min(x, ctx.canvas.width - labelWidth / 2 - 4));
-      const labelY = Math.max(16, y - 13);
+      const labelY = Math.max(fontSize + 4, y - radius - 3 * size);
       ctx.strokeText(label, labelX, labelY, Math.max(1, ctx.canvas.width - 8));
       ctx.fillText(label, labelX, labelY, Math.max(1, ctx.canvas.width - 8));
-      ctx.strokeStyle = '#42e8d5'; ctx.lineWidth = 2;
+      ctx.strokeStyle = '#42e8d5'; ctx.lineWidth = 2 * size;
     }
     ctx.restore();
   }
