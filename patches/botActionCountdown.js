@@ -4,8 +4,9 @@ import { definePatch } from "../modUtils.js";
 export default definePatch(({ replaceOne }) => {
     replaceOne(/this\.l5=null[,;]this\.kp=\[97,94,70,40,20,0,100\]/g,
         `__fx.botActionCountdown=function(player){
-            if(!__fx.settings.showBotActionCountdown||!aE.lE||aE.hi||
-                player<aE.ku||!ah.hN[player])return "";
+            if(!__fx.settings.showBotActionCountdown||aE.hi||
+                player<aE.ku||player>=aE.fW||!ah.hN[player]||
+                !ah.hN[aE.fJ]||!bv.i8(aE.fJ,player))return "";
             var ticks=kz[player];
             if(!(ticks>0)||!(bi.aDc>0))return "";
             return "  ACT "+(ticks*bi.aDc/1000).toFixed(1)+"s";
