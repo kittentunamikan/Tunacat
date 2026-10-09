@@ -56,20 +56,22 @@ export default (/** @type {ModUtils} */ { modifyCode, waitForMinification, match
           if (actionLabel) {
             const ctx = $<canvas>;
             const nameWidth = showName ? ctx.measureText($<playerData>.$<playerNames>[___id]).width : 0;
+            ctx.save();
+            const countdownFontSize = Math.min(24, Math.max(12, $<fontSize>, 12 * Math.sqrt(im)));
+            ctx.font = countdownFontSize + "px system-ui";
             const labelWidth = ctx.measureText(actionLabel).width;
             const rightEdge = ctx.textAlign === "left" ? $<x> + nameWidth
                 : ctx.textAlign === "right" ? $<x> : $<x> + nameWidth / 2;
             const labelX = Math.max(0, Math.min(rightEdge, ctx.canvas.width - labelWidth));
             if (labelX >= 0) {
-              ctx.save();
               ctx.textAlign = "left";
-              ctx.lineWidth = Math.max(2, $<fontSize> * 0.15);
+              ctx.lineWidth = Math.max(2, countdownFontSize * 0.15);
               ctx.strokeStyle = "rgba(0,0,0,0.85)";
               ctx.fillStyle = "#ffffff";
               ctx.strokeText(actionLabel, labelX, $<y>);
               ctx.fillText(actionLabel, labelX, $<y>);
-              ctx.restore();
             }
+            ctx.restore();
           }
         if (showName) { $10; }
         ${placeBalanceAbove} && __fx.settings.showPlayerDensity && (
@@ -79,5 +81,4 @@ export default (/** @type {ModUtils} */ { modifyCode, waitForMinification, match
     )
   })
 }
- 
  
