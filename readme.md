@@ -18,4 +18,5 @@
 ## Features:
 1.Adds a Show boat trajectories and landing points and Show troops on boat
 
+2.Adds a Show adjacent bot action countdown
 
