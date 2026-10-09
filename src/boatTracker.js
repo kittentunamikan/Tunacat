@@ -14,7 +14,8 @@ export function drawBoatRoutes(ctx, boats, view, getColor, settings) {
         ctx.globalAlpha = 1;
         ctx.lineWidth = 4;
         ctx.lineJoin = "round";
-        ctx.font = " 12px Trebuchet MS";
+        const labelScale = Math.max(1, Math.min(2, Math.sqrt(scale)));
+        ctx.font = `${12 * labelScale}px Trebuchet MS`;
         ctx.textAlign = "left";
         ctx.textBaseline = "middle";
         for (let i = 0; i < boats.mk; i++) {
@@ -55,13 +56,13 @@ export function drawBoatRoutes(ctx, boats, view, getColor, settings) {
                 ctx.globalAlpha = 1;
                 const text = String(boats.a8m[i]);
                 ctx.fillStyle = "rgba(0,0,0,0.75)";
-                ctx.fillRect(end[0] + 8, end[1] - 9, ctx.measureText(text).width + 8, 18);
+                ctx.fillRect(end[0] + 8 * labelScale, end[1] - 9 * labelScale, ctx.measureText(text).width + 8 * labelScale, 18 * labelScale);
                 // Keep the troop number readable on dark team colors.
-                ctx.lineWidth = 3;
+                ctx.lineWidth = 3 * labelScale;
                 ctx.strokeStyle = "rgba(0,0,0,0.95)";
-                ctx.strokeText(text, end[0] + 12, end[1]);
+                ctx.strokeText(text, end[0] + 12 * labelScale, end[1]);
                 ctx.fillStyle = "#ffffff";
-                ctx.fillText(text, end[0] + 12, end[1]);
+                ctx.fillText(text, end[0] + 12 * labelScale, end[1]);
             }
         }
     } finally {
