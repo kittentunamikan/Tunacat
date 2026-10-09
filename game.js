@@ -2563,8 +2563,32 @@ function cD() {
 }
 
 function a0J() {
-	au.a0K(), ws.setTransform(im, 0, 0, im, 0, 0), ws.imageSmoothingEnabled = im < 3, ws.drawImage(bV.yn, aT.a0L(), aT.a0M()), bS.a0N.wr(), ws.drawImage(a0O, aT.a0L(), aT.a0M()), au.wr(), bQ.wr(), ag.wr(), (aE.ny ? (bk.wr(), bF) : (aO.wr(), aW.wr(),
-		aS.wr(), bF.wr(), ax.wr(), aX.wr(), aT.wr(), aR.wr(), bk.wr(), aV.wr(), aQ.wr(), aN.wr(), aM.wr(), aY.wr(), bh.wr(), aw)).wr(), u.wr()
+	__fx.drawAutoSpawnPreview = function() {
+			if (__fx.autoSpawnPreview) {
+				var previewPlayers = [];
+				if (aE.hx)
+					for (var previewId = 0; previewId < aE.ku; previewId++) 0 !== ah.nU[previewId] && 0 === ah.hN[previewId] && previewPlayers.push(previewId);
+				__fx.autoSpawnPreview.render(ws, {
+					enabled: !(!__fx.settings.showAutoSpawnPreview || !aE.hx || aE.lE || aE.hi),
+					width: bV.fk,
+					height: bV.fl,
+					map: aEE,
+					seed: 2 * az.aO2() + 1,
+					players: previewPlayers,
+					names: ah.a0j,
+					zoom: im,
+					panX: jD,
+					panY: jE,
+					isLand: function(x, y) {
+						return ad.fU(ad.zt(x, y))
+					},
+					isOccupied: function(x, y) {
+						return ad.k5(ad.zt(x, y))
+					}
+				})
+			}
+		}, au.a0K(), ws.setTransform(im, 0, 0, im, 0, 0), ws.imageSmoothingEnabled = im < 3, ws.drawImage(bV.yn, aT.a0L(), aT.a0M()), bS.a0N.wr(), ws.drawImage(a0O, aT.a0L(), aT.a0M()), au.wr(), bQ.wr(), ag.wr(), aE.ny ? (bk.wr(), bF.wr(), u.wr()) :
+		(aO.wr(), aW.wr(), aS.wr(), bF.wr(), ax.wr(), aX.wr(), aT.wr(), aR.wr(), bk.wr(), aV.wr(), aQ.wr(), aN.wr(), aM.wr(), aY.wr(), bh.wr(), aw.wr(), u.wr(), __fx.drawAutoSpawnPreview && __fx.drawAutoSpawnPreview())
 }
 
 function a0P(ou, j, k) {
