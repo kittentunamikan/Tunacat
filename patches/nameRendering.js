@@ -51,15 +51,15 @@ export default (/** @type {ModUtils} */ { modifyCode, waitForMinification, match
         var showName = $<i> < $<game>.$<gHumans> || !__fx.settings.hideBotNames;
         if (showName) {
           $7;
-          const actionLabel = __fx.botActionCountdown?.(___id) || "";
+        }
+        const actionLabel = __fx.botActionCountdown?.(___id) || "";
           if (actionLabel) {
             const ctx = $<canvas>;
-            const nameWidth = ctx.measureText($<playerData>.$<playerNames>[___id]).width;
+            const nameWidth = showName ? ctx.measureText($<playerData>.$<playerNames>[___id]).width : 0;
             const labelWidth = ctx.measureText(actionLabel).width;
             const rightEdge = ctx.textAlign === "left" ? $<x> + nameWidth
                 : ctx.textAlign === "right" ? $<x> : $<x> + nameWidth / 2;
-            const labelX = rightEdge + labelWidth <= ctx.canvas.width ? rightEdge
-                : $<x> - nameWidth / 2 - labelWidth;
+            const labelX = Math.max(0, Math.min(rightEdge, ctx.canvas.width - labelWidth));
             if (labelX >= 0) {
               ctx.save();
               ctx.textAlign = "left";
@@ -71,8 +71,7 @@ export default (/** @type {ModUtils} */ { modifyCode, waitForMinification, match
               ctx.restore();
             }
           }
-          $10;
-        }
+        if (showName) { $10; }
         ${placeBalanceAbove} && __fx.settings.showPlayerDensity && (
             __fx.settings.coloredDensity && ($<canvas>.fillStyle = __fx.utils.textStyleBasedOnDensity(___id)),
             $<canvas>.fillText(__fx.utils.getDensity(___id), $<x>, showName ? $<y> + $<fontSize> : $<y>)
