@@ -20,3 +20,5 @@
 
 2.Adds a Show adjacent bot action countdown
 
+3.Adds a Preview automatic spawn positions
+
