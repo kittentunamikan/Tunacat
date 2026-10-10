@@ -59,7 +59,6 @@ windowElement.style.zIndex = "10000";
 windowElement.style.pointerEvents = "none";
 panel.style.pointerEvents = "auto";
 
-// Tick injection is implemented by the build-time patch in patches/autoStrategyTick.js.
 function getBorderPlayers(self, width, height, owner) {
   if (!owner || !width || !height || self < 0) return null;
   const border = new Set();
