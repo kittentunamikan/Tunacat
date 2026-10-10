@@ -19,15 +19,17 @@ export default definePatch(({ insertCode, modifyCode, replaceCode }) => {
 				zH.fillText(aB9, Math.floor(nV + 0.5 * tS), Math.floor(0.3 * this.j));
 			}
 		}
-		${insert(`if (__fx.settings.displayTickNumber)
+		${insert(`window.__fx.currentTick = 9 - eh;
+      if (__fx.autoStrategyTick) __fx.autoStrategyTick(9 - eh);
+      if (__fx.settings.displayTickNumber)
       zH.fillText(9 - eh, Math.floor(aAv * 2 + aBA), Math.floor(0.3 * this.j));`)}`)
 
   // Add FX Client version info to the game version window
   modifyCode(`4, 1, new g(__L(), b.c + "<br>" + d.e.f("/changelog")
     ${insert(` + "<br><br><b>" + "FX Client v" + __fx.version
       + "<br><a href='https://discord.gg/dyxcwdNKwK' target='_blank'>FX Client Discord server</a>"
-      + "<br><a href='https://github.com/fxclient/FXclient' target='_blank'>Github repository</a></b>"`)} /*...*/)`)
-  
+      + "<br><a href='https://github.com/fxclient/FXclient' target='_blank'>Github repository</a></b>"`)} /*...*/)`) 
+
   // Hide propaganda popup
   insertCode(`/* here */
     a = b.c + 60 * 1000;
