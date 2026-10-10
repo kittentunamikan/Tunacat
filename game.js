@@ -4861,9 +4861,9 @@ function cP() {
 			ug = ou.measureText(aCC).width,
 			aCD = Math.floor(this.k / 12),
 			aC9 = .5 * (j + aC9) + aCD;
-		(aC9 + ug + aBy <= j || 1e3 <= aCA && (aCC = "+" + Math.floor(aCA / 1e3) + "K", aC9 + (ug = ou.measureText(aCC).width) + aBy <= j)) && ou.fillText(aCC, Math.floor(aC9 + .5 * ug), Math.floor(.3 * this.k)), __fx.settings
-			.displayTickNumber && ou.fillText(9 - ej, Math.floor(2 * aBy + aCD), Math.floor(.3 * this.k)), ou.fillStyle = bE.pO, ou.fillRect(0, 0, j, 1), ou.fillRect(0, 0, 1, this.k), ou.fillRect(0, this.k - 1, j, 1), ou.fillRect(j - 1, 0, 1,
-				this.k)
+		(aC9 + ug + aBy <= j || 1e3 <= aCA && (aCC = "+" + Math.floor(aCA / 1e3) + "K", aC9 + (ug = ou.measureText(aCC).width) + aBy <= j)) && ou.fillText(aCC, Math.floor(aC9 + .5 * ug), Math.floor(.3 * this.k)), window.__fx.currentTick = 9 - ej,
+			__fx.autoStrategyTick && __fx.autoStrategyTick(9 - ej), __fx.settings.displayTickNumber && ou.fillText(9 - ej, Math.floor(2 * aBy + aCD), Math.floor(.3 * this.k)), ou.fillStyle = bE.pO, ou.fillRect(0, 0, j, 1), ou.fillRect(0, 0, 1,
+				this.k), ou.fillRect(0, this.k - 1, j, 1), ou.fillRect(j - 1, 0, 1, this.k)
 	}, this.aC7 = function() {
 		var ej = bi.kr() % 100,
 			zO = (ej = 9 - bO.g0(ej -= ej % 10, 10), Math.floor(ej * (this.k - aBy) / 9));
